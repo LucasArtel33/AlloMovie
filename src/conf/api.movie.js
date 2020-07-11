@@ -29,7 +29,7 @@ export default {
                    .then( moviesApi => moviesApi.map(apiMovieMap))
   },
   initialRequest: () => {
-    return apiMovie.get('/discover/movie?language=fr-FR')
+    return apiMovie.get('/discover/movie?language=fr-FR') 
                    .then( response => response.data.results)
                    .then( moviesApi => moviesApi.map(apiMovieMap))
   }

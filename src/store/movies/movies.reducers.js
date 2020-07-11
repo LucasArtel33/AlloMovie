@@ -1,12 +1,11 @@
 import * as actions from './movie.actions';
 
-// export const INITIAL_FETCH_MOVIES = 'initial fetch movies'
-
 export default (state = {
   data: [],
   isLoading: false,
   error: null,
-  selectedMovie: 0
+  selectedMovie: 0,
+  showModal: true
 }, action) => {
   switch(action.type) {
     case actions.REQUEST_MOVIES: {
@@ -36,6 +35,18 @@ export default (state = {
       return {
         ...state,
         selectedMovie: action.index
+      }
+    }
+    case actions.SHOW_MODAL: {
+      return {
+        ...state,
+        showModal: true
+      }
+    }
+    case actions.HIDE_MODAL: {
+      return {
+        ...state,
+        showModal: false
       }
     }
     default: {

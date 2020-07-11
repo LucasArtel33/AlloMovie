@@ -6,9 +6,12 @@ export const FETCH_MOVIES_SUCCESS = 'fetch movies success';
 export const FETCH_MOVIES_ERROR = 'fetch movies error';
 export const SET_SELECTED_MOVIE = 'set selected movies';
 
-export const INITIAL_FETCH_MOVIES = 'initial fetch movies'
-export const INITIAL_FETCH_MOVIES_SUCCESS = 'initial fetch movies success'
-export const INITIAL_FETCH_MOVIES_ERROR = 'initial fetch movies error'
+export const INITIAL_FETCH_MOVIES = 'initial fetch movies';
+export const INITIAL_FETCH_MOVIES_SUCCESS = 'initial fetch movies success';
+export const INITIAL_FETCH_MOVIES_ERROR = 'initial fetch movies error';
+
+export const SHOW_MODAL= 'show modal';
+export const HIDE_MODAL= 'hide modal';
 
 
 export const requestMovies = () => ({
@@ -53,4 +56,22 @@ export const initialFetchMovies = () => dispatch => {
     movies => dispatch(fetchMoviesSuccess(movies)),
     error => dispatch(fetchMoviesError(error))
   )
+}
+
+export const showModal = (movies) =>( {
+  type: SHOW_MODAL,
+  movies
+})
+
+export const hideModal = (movies) =>( {
+  type: HIDE_MODAL,
+  movies
+})
+
+export const openModal = () => dispatch=> {
+  return dispatch(showModal())
+}
+
+export const closeModal = () => dispatch=> {
+  return dispatch(hideModal())
 }
